@@ -1,0 +1,15 @@
+﻿
+##打包路径
+out
+
+
+.idea
+
+
+*.iml
+
+target
+
+node_modules
+
+.vscode

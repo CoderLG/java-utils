@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: Demo
+    version: ${random.long}
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.4.38:5431/gang
+    username: postgres
+    password: postgres
+  jpa:
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect    #与jts_geometry相关
+          temp:
+            use_jdbc_metadata_defaults: false
+      show-sql: true
+  rabbitmq:
+    addresses: 192.168.4.78
+    port: 15672
+    username: guest
+    password: guest
+
+swagger:
+  enabled: true
+  title: 开发文档
+  version: ${spring.application.version}
+  description: 开发文档
+  exclude-path: /error,/actuator/**
+  contact:
+    name: CoderLG
+    email: im.lg@qq.com
+  authorization:
+    name: 认证头
+    key-name: Authorization
+
+number: 2
