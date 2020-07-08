@@ -34,10 +34,21 @@ import java.util.TimeZone;
 public class TimeUtils {
 
     public static  String getCurrentTime(){
-        return longToStr(System.currentTimeMillis());
+        return longFormatStr(System.currentTimeMillis());
     }
 
-    public static String longToStr(Long time){
+    /**
+     * 获取时间差
+     * 单位毫秒
+     * @param start
+     * @return
+     */
+    public static Long subWithCurrentTime(Long start){
+        long end = System.currentTimeMillis();
+        return  (end - start) / 1000;
+    }
+
+    public static String longFormatStr(Long time){
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         cal.setTimeInMillis(time);
@@ -45,12 +56,12 @@ public class TimeUtils {
         return format;
     }
 
-    public static String longToStr(Instant time){
+    public static String longFormatStr(Instant time){
         String format =  DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss.SSS").format(LocalDateTime.ofInstant(time, ZoneId.systemDefault()));
         return format;
     }
 
-    public static Long strToLong(String time){
+    public static Long strFormatLong(String time){
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         Date parse = null;
         try {
@@ -61,7 +72,11 @@ public class TimeUtils {
         return parse.getTime();
     }
 
-
+    /**
+     * 减 8个小时
+     * @param time
+     * @return
+     */
     public static Long toUtcTime(Long time) {
         /** long时间转换成Calendar */
         Calendar calendar = Calendar.getInstance();
@@ -84,7 +99,11 @@ public class TimeUtils {
         return utcDate.getTime();
     }
 
-
+    /**
+     * 加8 个小时
+     * @param time
+     * @return
+     */
     public static Long toBjTime(Long time) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
         Date t = new Date(time);
