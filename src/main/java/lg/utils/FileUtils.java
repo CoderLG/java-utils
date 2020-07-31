@@ -134,7 +134,7 @@ public class FileUtils {
                         e.printStackTrace();
                     }
 
-                    System.out.println(TimeUtils.longToStr(time.toInstant()) + "\t" + TimeUtils.longToStr(file.lastModified()) + "\t" + "d");
+                    System.out.println(TimeUtils.longFormatStr(time.toInstant()) + "\t" + TimeUtils.longFormatStr(file.lastModified()) + "\t" + "d");
 
                 } else {
                     System.out.print(file.getName() + "\t");
@@ -143,7 +143,7 @@ public class FileUtils {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    System.out.println(TimeUtils.longToStr(time.toInstant()) + "\t" + TimeUtils.longToStr(file.lastModified()) + "\t" + "f");
+                    System.out.println(TimeUtils.longFormatStr(time.toInstant()) + "\t" + TimeUtils.longFormatStr(file.lastModified()) + "\t" + "f");
                 }
             }
         }

@@ -15,8 +15,8 @@ public class TimeUtilsTest {
     public void format() {
         Long aLong = TimeUtils.toUtcTime(System.currentTimeMillis());
         System.out.println(aLong);
-        System.out.println(TimeUtils.longToStr(aLong));
+        System.out.println(TimeUtils.longFormatStr(aLong));
         System.out.println(TimeUtils.toBjTime(aLong));
-        System.out.println(TimeUtils.longToStr(TimeUtils.toBjTime(aLong)));
+        System.out.println(TimeUtils.longFormatStr(TimeUtils.toBjTime(aLong)));
     }
 }

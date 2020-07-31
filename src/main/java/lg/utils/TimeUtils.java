@@ -1,5 +1,6 @@
 package lg.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import sun.rmi.runtime.Log;
@@ -120,7 +121,35 @@ public class TimeUtils {
             return null;
         }
 
+    }
 
+
+
+    /**
+     * java -Duser.timezone=Asia/Shanghai -jar server.jar
+     *
+     * 目前时间：Fri Jul 31 08:59:26 CST 2020
+     * Calendar时区：：Asia/Shanghai
+     * user.timezone：Asia/Shanghai
+     * ser.country：US
+     * 默认时区：Asia/Shanghai
+     */
+    public static JSONObject showTimeZone(){
+        JSONObject restO = new JSONObject();
+        Calendar calendar = Calendar.getInstance();
+        log.info("目前时间：" + calendar.getTime());
+        log.info("Calendar时区：：" + calendar.getTimeZone().getID());
+        log.info("user.timezone：" + System.getProperty("user.timezone"));
+        log.info("user.country：" + System.getProperty("user.country"));
+        log.info("默认时区：" + TimeZone.getDefault().getID());
+
+        restO.put("目前时间：", calendar.getTime());
+        restO.put("Calendar时区：",calendar.getTimeZone().getID());
+        restO.put("user.timezone：", System.getProperty("user.timezone"));
+        restO.put("user.country：", System.getProperty("user.country"));
+        restO.put("默认时区：", TimeZone.getDefault().getID());
+
+        return restO;
     }
 
 }
