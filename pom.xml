@@ -20,7 +20,7 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.RC2</spring-cloud.version>
-        <geotools.version>13.1</geotools.version>
+        <geotools.version>19.0</geotools.version>
     </properties>
 
     <dependencies>
@@ -220,11 +220,48 @@
         </dependency>
 
         <!-- 地理 几何操作 -->
-       <dependency>
+        <dependency>
             <groupId>org.geotools</groupId>
-            <artifactId>gt-jts-wrapper</artifactId>
+            <artifactId>gt-shapefile</artifactId>
             <version>${geotools.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-api</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-opengis</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-data</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-main</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-referencing</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.geotools</groupId>
+            <artifactId>gt-metadata</artifactId>
+            <version>${geotools.version}</version>
+        </dependency>
+
 
         <!-- ===================工具类========================= -->
 

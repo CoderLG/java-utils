@@ -12,12 +12,16 @@ import java.util.List;
  * date: 2019-10-29 11:14
  * desc:
  * 实体间 相同属性的赋值
- *
- * 使用：
- * DozerUtils.mapList(students, Teacher.class);
  */
 public class DozerUtils {
-      public static DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
+
+    public static DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
+
+    public static  <T> T map(Object source,Class<T> destinationClass){
+        T destinationObj = dozerBeanMapper.map(source, destinationClass);
+        return destinationObj;
+    }
+
 
       public static <T> List<T> mapList(Collection sourceList,Class<T> destinationClass){
          List destinationList = Lists.newArrayList();
